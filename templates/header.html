@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static "style.css" %}" />
+        <title>blox</title>
+    </head>
+    <body>
+        <div id="header">
+            <h1 class="logo"><a href="/">Blox</a></h1>
+            <div class="menu">
+                <a href="/">Anasayfa</a>
+                {% if user.is_authenticated %}
+                    <a href='#'>Jello {{ user.username }}</a>
+                    <a href='#'>yeni yazı ekle</a>
+                    <a href='#'>profilini güncelle</a>
+                    <a href='/account/logout/'>çıkış</a>
+                {% else %}
+                    <a href="/account/login/">login</a>
+                    <a href="/account/register">register</a>
+                {% endif %}
+            </div>
+        </div>
+

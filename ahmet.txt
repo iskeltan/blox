@@ -1,0 +1,14 @@
+from post.models import Post, Comment
+from django.contrib.contenttypes.models import ContentType
+
+
+for post in Post.objects.all():
+    print post.name
+    ct = ContentType.objects.get_for_model(post)
+    comments = Comment.objects.filter(object_type=ct)
+    for comment in comments:
+        print "- %s" %comment.comment
+        ct = ContentType.objects.get_for_model(comment)
+        sub_comments = Comment.objects.filter(object_type=ct)
+        for subcom in sub_comments:
+            print "-- %s" %subcom.comment

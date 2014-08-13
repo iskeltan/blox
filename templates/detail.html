@@ -1,0 +1,47 @@
+{% load humanize  %}
+    {% include "header.html" %}
+        <div id="container">
+            <div class="post">
+                <h2 class="title"><a href="#">{{ post.name }}</a></h2>
+                <div class="content">
+                    {{ post.content }}
+                </div>
+                <div class="info"><i>{{ post.updated_at|naturaltime }} yazıldı | Yazar: <a href="#">{{ post.user.username }}</a></i></div>
+            </div>
+             
+          {% include "sidebar.html" %} 
+           <!-- 
+                <div class="cl"></div>
+               <div class="pagination">
+                    <span><a href="#">1</a></span>
+                    <span><a href="#">2</a></span>
+                    <span><a href="#">1</a></span>
+                    <span><a href="#">1</a></span>
+                    <span><a href="#">1</a></span>
+                    <span><a href="#">1</a></span>
+                    <span><a href="#">1</a></span>
+
+        </div>
+        -->
+        <div class="cl"></div>
+        <div id="comment">
+            {% for comment in all_comments %}
+                <div class="comment">
+                    {% if comment.user %}
+                        <span class="username">{{ comment.user.username }}</span>
+                    {% else %}
+                        <span class="username">Anon</span>
+                    {% endif %}
+                    <span class="content">{{ comment.comment }}</span>
+                </div>
+            {% endfor %}
+            <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/post/{{ post.id }}/">
+            {% csrf_token %}
+                <p>{{ comment_form.email }}</p>
+                <p>{{ comment_form.comment }}</p>
+                <p><input type="submit" name="add_comment" id="add_comment" value="Gönder" /></p>
+            </form>
+        </div>
+        </div>
+    </body>
+</html>

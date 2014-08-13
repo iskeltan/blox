@@ -1,0 +1,29 @@
+{% load humanize  %}
+    {% include "header.html" %}
+        <div id="container">
+          <form method="POST" action="{% url 'register' %}">
+          {% csrf_token %}
+          <div id="form" style="width:350px;">
+          {{ register_form.field_errors }}
+          {% for field in register_form %}
+            <div class="line">
+                {% if field.name == "username" %}
+                    <label for="id_username">Email Address</label>
+                {% else %}
+                    {{ field.label_tag }}
+                {% endif %}
+                {% if field.field.required %}<span class="required">*</span>{% endif %}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <div class="line">
+                <input type="submit" name="submit" value="register" />
+            </div>
+
+
+          </div>
+          </form>
+        </div>
+    </body>
+</html>

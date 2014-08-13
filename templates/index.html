@@ -1,0 +1,17 @@
+{% load humanize  %}
+    {% include "header.html" %}
+        <div id="container">
+        {% for post in posts %}
+            <div class="post">
+                <h2 class="title"><a href="{% url 'detail' post.id %}">{{ post.name }}</a></h2>
+                <div class="content">
+                    {{ post.content }}
+                </div>
+                <div class="info"><i>{{ post.updated_at|naturaltime }} yazıldı | Yazar: <a href="#">{{ post.user.username }}</a></i></div>
+            </div>
+            {% endfor %}
+           
+          {% include "sidebar.html" %} 
+        </div>
+    </body>
+</html>
