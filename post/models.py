@@ -22,7 +22,7 @@ class Comment(models.Model):
 
     post = models.ForeignKey(Post)
     
-    activtion_code = models.CharField(max_length=50, blank=True, null=True)
+    activation_code = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
 

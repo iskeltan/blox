@@ -1,7 +1,10 @@
-import hashlib
 from django import forms 
 from django.contrib.contenttypes.models import ContentType
 from post.models import Post, Comment
+from blox.tasks import send_comment_activation_mail
+import hashlib
+import random
+import re
 
 
 class CommentForm_no_auth(forms.ModelForm):
@@ -15,12 +18,22 @@ class CommentForm_no_auth(forms.ModelForm):
             "email" : forms.TextInput(attrs={"placeHolder":"E-Mail Address"}),
         }
 
+    def clean_email(self):
+        email = self.cleaned_data["email"]
+        rule = "[^@]+@[^@]+\.[^@]+"
+        if not re.match(rule, email):
+            raise forms.ValidationError(_("this email is not valid"))
+
+        return email
+
 
     def save(self):
         post = self.initial["post"]
         parent_object = self.initial["parent_object"]
         email = self.cleaned_data["email"]
-        activation_code = hashlib.sha224(email).hexdigest()[:50]
+        random_int = random.random()*9999
+        activation_code = hashlib.sha224("%s:%s"%(email,random_int)).hexdigest()[:50]
+        print activation_code
         new_comment = Comment()
         new_comment.comment = self.cleaned_data["comment"]
         new_comment.email = email 
@@ -30,6 +43,7 @@ class CommentForm_no_auth(forms.ModelForm):
         new_comment.content_type = ContentType.objects.get_for_model(parent_object)
         new_comment.is_active = False
         new_comment.save()
+        send_comment_activation_mail.delay(activation_code, email)
 
 class CommentForm(forms.ModelForm):
     
@@ -46,6 +60,7 @@ class CommentForm(forms.ModelForm):
         post = self.initial["post"]
         user = self.initial["user"]
         parent_object = self.initial["parent_object"]
+
 
         new_comment = Comment()
         new_comment.comment = self.cleaned_data["comment"]

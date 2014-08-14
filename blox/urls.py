@@ -9,8 +9,6 @@ here = lambda x: os.path.join(os.path.abspath(os.path.dirname(__file__)), x)
 
 
 urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'blox.views.home', name='home'),
     url(r'^$', 'post.views.home', name='home'),
     url(r'^post/(?P<post_id>[0-9]+)/$','post.views.detail', name='detail'),
     url(r'^add_comment/(?P<post_id>[0-9]+)/(?P<obj_name>.*)/(?P<obj_id>[0-9]+)/$','post.views.add_comment', name='add_comment'),
@@ -19,7 +17,8 @@ urlpatterns = patterns('',
     url(r'^account/register/$','account.views.register_view', name='register'),
     url(r'^account/logout/$', 'account.views.logout_view', name='logout'),
     url(r'^account/activate/(?P<activation_code>.*)/', 'account.views.activate_user', name='activate_user'),
-    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^comment/activate/(?P<activation_code>.*)/$','post.views.activate_comment', name='activate_comment'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

@@ -30,7 +30,7 @@
                     {% if comment.user %}
                         <span class="username">{{ comment.user.username }}</span>
                     {% else %}
-                        <span class="username">Anon</span>
+                        <span class="username" title="{{ comment.email }}" alt="{{ comment.email }}">Anon</span>
                     {% endif %}
                     <span class="content">{{ comment.comment }}</span>
                 </div>

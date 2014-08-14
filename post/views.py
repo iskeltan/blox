@@ -62,7 +62,18 @@ def add_comment(request, post_id, obj_name, obj_id):
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
         else:
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
-
-        return HttpResponse("postla geldi")
     else:
         return HttpResponseRedirect("/")
+
+
+
+def activate_comment(request, activation_code):
+    comment = Comment.objects.filter(activation_code=activation_code)
+    if comment:
+        comment = comment[0]
+        comment.is_active = True
+        comment.save()
+    else:
+        return HttpResponse("invalid activation key")
+    return HttpResponseRedirect(reverse('detail', args=[comment.post.id]))
+
