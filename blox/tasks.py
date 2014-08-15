@@ -17,6 +17,7 @@ def send_comment_activation_mail(activation_key, email_address):
 
 @task
 def send_user_activation_mail(activation_key, email_address):
+    site = Site.objects.get_current().domain
     subject = "About your user activation"
     body = "go to this link for user activation: http://%s/activate/account/%s/" %(site, \
             activation_key)

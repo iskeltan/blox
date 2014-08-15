@@ -71,3 +71,9 @@ class RegisterForm(forms.ModelForm):
         send_user_activation_mail.delay(activation_code, email)
 
 
+class UserProfileForm(forms.ModelForm):
+    
+    class Meta:
+        model = UserProfile
+        fields = ["bio", "avatar" ]
+

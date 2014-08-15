@@ -15,16 +15,16 @@ class Post(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Comment(models.Model):
     comment = models.TextField()
     user = models.ForeignKey(User, blank=True, null=True)
     email = models.CharField(max_length=250, blank=True, null=True)
 
-    post = models.ForeignKey(Post)
-    
     activation_code = models.CharField(max_length=50, blank=True, null=True)
     is_active = models.BooleanField(default=False)
 
+    post = models.ForeignKey(Post)
 
     content_type = models.ForeignKey(ContentType)
     object_id = models.PositiveIntegerField()

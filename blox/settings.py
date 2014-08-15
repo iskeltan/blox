@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django.contrib.sites',
+#TODO:   'django.contrib.il8n',
     'blox',
     'post',
     'account',

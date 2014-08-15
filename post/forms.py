@@ -1,5 +1,6 @@
 from django import forms 
 from django.contrib.contenttypes.models import ContentType
+from django.utils.translation import ugettext as _
 from post.models import Post, Comment
 from blox.tasks import send_comment_activation_mail
 import hashlib
@@ -28,9 +29,9 @@ class CommentForm_no_auth(forms.ModelForm):
 
 
     def save(self):
-        post = self.initial["post"]
         parent_object = self.initial["parent_object"]
         email = self.cleaned_data["email"]
+        post = self.initial["post"]
         random_int = random.random()*9999
         activation_code = hashlib.sha224("%s:%s"%(email,random_int)).hexdigest()[:50]
         print activation_code
@@ -105,3 +106,12 @@ class CommentForm(forms.ModelForm):
 #            new_comment.activation_code = activation_code
 #
 #        new_comment.save()
+
+
+
+class PostAddForm(forms.ModelForm):
+    
+    class Meta:
+        model = Post
+        fields = ['name', 'content']
+

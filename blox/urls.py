@@ -13,11 +13,13 @@ urlpatterns = patterns('',
     url(r'^post/(?P<post_id>[0-9]+)/$','post.views.detail', name='detail'),
     url(r'^add_comment/(?P<post_id>[0-9]+)/(?P<obj_name>.*)/(?P<obj_id>[0-9]+)/$','post.views.add_comment', name='add_comment'),
 
+    url(r'^add_post/$', 'post.views.add_post', name='add_post'),
+
     url(r'^account/login/$', 'account.views.login_view', name='login'),
     url(r'^account/register/$','account.views.register_view', name='register'),
     url(r'^account/logout/$', 'account.views.logout_view', name='logout'),
     url(r'^account/activate/(?P<activation_code>.*)/', 'account.views.activate_user', name='activate_user'),
-
+    url(r'^account/profile/', 'account.views.user_profile', name='user_profile'),
     url(r'^comment/activate/(?P<activation_code>.*)/$','post.views.activate_comment', name='activate_comment'),
 
     url(r'^admin/', include(admin.site.urls)),

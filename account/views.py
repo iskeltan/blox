@@ -4,8 +4,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from django.contrib.auth.models import User
-from account.forms import LoginForm, RegisterForm
+from django.contrib.auth.decorators import login_required
+from account.forms import LoginForm, RegisterForm, UserProfileForm
 from account.models import UserProfile
 import ipdb
 
@@ -22,12 +24,13 @@ def login_view(request):
                     return HttpResponseRedirect(reverse('home'))
                 else:
                     form = LoginForm(request.POST)
-                    form.errors["email"] = _("bu kullanici aktif değil")
+                    messages.warning(request, "this user is not active")
                     ctx = { "login_form": form}
                     return render(request, "login.html", ctx)
             else:
                 form = LoginForm(request.POST)
                 form.errors["email"] = _("boyle bir kullanici yok")
+                messages.error(request, "no such user")
                 ctx = { "login_form": form}
                 return render(request, "login.html", ctx)
         else:
@@ -54,7 +57,8 @@ def register_view(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponse('oldu')
+            messages.info(request, _("your user has been created but need confirm email"))
+            return HttpResponseRedirect(reverse('home'))
         else:
             form = RegisterForm(request.POST)
             ctx = {"register_form": form }
@@ -75,11 +79,29 @@ def activate_user(request, activation_code):
     if user_profile:
         user_profile = user_profile[0]
     else:
-        return HttpResponse(_('this code does not belong to a user'))
+        messages.error(request, _("this code does not belong to a user"))
+        return HttpResponseRedirect(reverse('home'))
     if user_profile.user.is_active:
-        return HttpResponse(_('this user is already activated'))
+        messages.info(request, _("this user is already activated"))
+        return HttpResponseRedirect(reverse('home'))
     user_profile.user.is_active = True
     user_profile.user.save()
-    return HttpResponse("activate your account")
+    messages.info(request, "activate your account")
+    return HttpResponseRedirect(reverse('home'))
 
 
+
+@login_required(login_url='/account/login/')
+def user_profile(request):
+    if request.method == "POST":
+        form = UserProfileForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('user_profile'))
+        else:
+            ctx = {"form": form}
+            return render(request, "user_profile.html", ctx )
+    else:
+        form = UserProfileForm()
+        ctx = {"form": form}
+        return render(request, "user_profile.html", ctx)

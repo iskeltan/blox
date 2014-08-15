@@ -3,10 +3,16 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.core.cache import cache
+from django.contrib import messages
 from post.models import Post, Comment
-from post.forms import CommentForm, CommentForm_no_auth
+from post.forms import CommentForm, CommentForm_no_auth, \
+        PostAddForm
 from blox.tasks import send_comment_activation_mail
+import ipdb
+import copy
+
 
 def home(request):
     posts = cache.get("all_post")
@@ -34,7 +40,8 @@ def detail(request, post_id):
     if not all_comments:
         all_comments = Comment.objects.filter(is_active=True, post=post)
         cache.set("post_comment-%s"%post_id, all_comments)
-    ctx = { "post": post, "comment_form": comment_form, "all_comments": all_comments  }
+
+    ctx = { "post": post, "comment_form": comment_form, "all_comments": all_comments }
     return render(request, "detail.html", ctx)
 
 
@@ -52,15 +59,16 @@ def add_comment(request, post_id, obj_name, obj_id):
 
         if request.user.is_authenticated():
             comment_form = CommentForm(request.POST, initial=initial_data)
-            print "auth"
+            messages.info(request, "your comment has been added")
         else:
             comment_form = CommentForm_no_auth(request.POST, initial=initial_data)
-            print "not auth"
+            messages.info(request, "your comment has been added but must confirm with email required ")
 
         if comment_form.is_valid():
             comment_form.save()
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
         else:
+            messages.warning(request, "this comment is not valid ")
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
     else:
         return HttpResponseRedirect("/")
@@ -73,7 +81,33 @@ def activate_comment(request, activation_code):
         comment = comment[0]
         comment.is_active = True
         comment.save()
+        messages.info(request, "your comment has been activated")
     else:
-        return HttpResponse("invalid activation key")
+        messages.error(request, "invalid activation key")
+
     return HttpResponseRedirect(reverse('detail', args=[comment.post.id]))
+
+
+@login_required(login_url='/account/profile/')
+def add_post(request):
+    if request.method == "POST":
+        form = PostAddForm(request.POST)
+        if form.is_valid():
+            post_name = form.cleaned_data["name"]
+            post_content = form.cleaned_data["content"]
+            post = Post()
+            post.name = post_name
+            post.content = post_content
+            post.user = request.user
+            post.is_visible = False
+            post.save()
+            return HttpResponseRedirect(reverse('detail', args=[post.pk]))
+        else:
+            form.errors["name"] = "form is not valid"
+
+        ctx = {"form": form }
+    else:
+        form = PostAddForm()
+        ctx = {"form": form} 
+    return render(request, "add_post.html", ctx)
 

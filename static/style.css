@@ -1,4 +1,4 @@
-*{ margin:0; padding:0; text-decoration:none; }
+*{ margin:0; padding:0; text-decoration:none; list-style:none;  }
 body{ font-family:Arial; background:#efefef; }
 .cl{ clear:both; }
 #header{ width:950px; background:white; overflow:hidden;  margin:0 auto; padding:5px;  }
@@ -28,9 +28,9 @@ body{ font-family:Arial; background:#efefef; }
     font-size:12pt; padding:15px; width:650px; min-height:100px;  }
 
 #container #comment .comment{ border:1px solid rgba(21,118,179,0.5); border-radius:10px;
-    padding:10px; width:600px; max-height:200px;  }
+    padding:10px; width:600px;   }
 #container #comment .comment .username{ font-weight:bold; color:rgb(21,118,179); display:block; }
-
+#container #comment .comment textarea{ width:200px !important; height:100px !important;  }
 #container #form{ border:5px solid rgba(0,0,0,0.3);  
     overflow:hidden; border-radius:10px; padding:12px; }
 #container #form .line{ display:block; overflow:hidden;  }
@@ -39,3 +39,9 @@ body{ font-family:Arial; background:#efefef; }
 #container #form .line input{ float:right; padding:3px;  border-radius:4px; margin-top:5px;  }
 #container #form .line input[type='submit']{ float:right;  }
 #container #form .line textarea{ height:150px; width:200px; float:right; }
+
+.messages{ width:100%; overflow:hidden; position:absolute; }
+.messages li{ position:relative; left:25%; width:950px; color:white; font-size:11pt; padding:3px; font-weight:bold; } 
+.messages li.info{ background:rgba(91,192,222,0.8); }
+.messages li.success{ background:rgba(91,184,192,0.8); }
+.messages li.warning{ background:rgba(217,83,79,0.8); }
