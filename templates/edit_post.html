@@ -1,6 +1,6 @@
     {% include "header.html" %}
         <div id="container">
-          <form method="POST" action="{% url 'add_post' %}">
+          <form method="POST" action="{% url 'edit_post' post_id %}">
           {% csrf_token %}
           <div id="form" style="width:350px;">
           {{ form.field_errors }}

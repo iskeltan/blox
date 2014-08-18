@@ -6,7 +6,7 @@
                 <div class="content">
                     {{ post.content }}
                 </div>
-                <div class="info"><i>{{ post.updated_at|naturaltime }} yazıldı | Yazar: <a href="#">{{ post.user.username }}</a></i></div>
+                <div class="info"><i>{{ post.updated_at|naturaltime }} yazıldı | Yazar: <a href="#">{{ post.user.first_name }}</a></i></div>
             </div>
              
           {% include "sidebar.html" %} 

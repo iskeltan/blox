@@ -13,7 +13,9 @@ urlpatterns = patterns('',
     url(r'^post/(?P<post_id>[0-9]+)/$','post.views.detail', name='detail'),
     url(r'^add_comment/(?P<post_id>[0-9]+)/(?P<obj_name>.*)/(?P<obj_id>[0-9]+)/$','post.views.add_comment', name='add_comment'),
 
-    url(r'^add_post/$', 'post.views.add_post', name='add_post'),
+    url(r'^post/add/$', 'post.views.add_post', name='add_post'),
+    url(r'^post/edit/(?P<post_id>[0-9]+)/$', 'post.views.edit_post', name='edit_post'),
+
 
     url(r'^account/login/$', 'account.views.login_view', name='login'),
     url(r'^account/register/$','account.views.register_view', name='register'),

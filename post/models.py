@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
+from django.core.cache import cache
 
 
 class Post(models.Model):
@@ -11,9 +12,15 @@ class Post(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User)
     is_visible = models.BooleanField(default=True)
-    
+  
+
     def __unicode__(self):
         return self.name
+
+
+    def save(self, *args, **kwargs):
+        cache.set("all_post", None)
+        super(Post, self).save(*args, **kwargs)
 
 
 class Comment(models.Model):

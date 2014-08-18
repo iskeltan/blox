@@ -9,6 +9,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from account.forms import LoginForm, RegisterForm, UserProfileForm
 from account.models import UserProfile
+from post.models import Post
 import ipdb
 
 def login_view(request):
@@ -48,7 +49,7 @@ def logout_view(request):
         logout(request)
         return HttpResponseRedirect(reverse('home'))
     else:
-        return HttpResponse("are you seriously :( ? \
+        return HttpResponse("are you serious :( ? \
         <br> <a href='?im=sure'>yes</a> <a href='/'>no</a>")
 
 
@@ -94,14 +95,15 @@ def activate_user(request, activation_code):
 @login_required(login_url='/account/login/')
 def user_profile(request):
     if request.method == "POST":
-        form = UserProfileForm(request.POST)
-        if form.is_valid():
-            form.save()
+        profile_form = UserProfileForm(request.POST)
+        if profile_form.is_valid():
+            profile_form.save()
             return HttpResponseRedirect(reverse('user_profile'))
         else:
-            ctx = {"form": form}
+            ctx = {"profile_form": profile_form}
             return render(request, "user_profile.html", ctx )
     else:
-        form = UserProfileForm()
-        ctx = {"form": form}
+        user_post = Post.objects.filter(user=request.user)
+        profile_form = UserProfileForm()
+        ctx = {"profile_form": profile_form, "posts": user_post }
         return render(request, "user_profile.html", ctx)

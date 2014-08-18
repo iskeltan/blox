@@ -40,6 +40,18 @@ body{ font-family:Arial; background:#efefef; }
 #container #form .line input[type='submit']{ float:right;  }
 #container #form .line textarea{ height:150px; width:200px; float:right; }
 
+#container #profile-menu{ width:100%; margin:0 auto;  }
+#container #profile-menu a{ background:rgba(21,118,179,0.3); color:white; padding:10px; 
+        border-bottom:1px dashed rgba(0,0,0,0.2); font-weight:bold; }
+#container #profile-menu a:nth-child(1){ border-radius:10px 0 0 0px; }
+#container #profile-menu a:nth-child(2){ border:0 1px 0 1px solid red; margin:-3px;}   
+#container #profile-menu a:nth-last-child(1){ border-radius:0 10px 0px 0; }
+#container #profile-menu a:hover{ background:#B35215; }   
+
+#container .profile-tab{ display:none; background:rgba(21,118,179,0.3); margin-top:-9px; padding:5px; 
+    border-radius:0 0 10px 0; }
+#container .active{ display:block; }    
+
 .messages{ width:100%; overflow:hidden; position:absolute; }
 .messages li{ position:relative; left:25%; width:950px; color:white; font-size:11pt; padding:3px; font-weight:bold; } 
 .messages li.info{ background:rgba(91,192,222,0.8); }

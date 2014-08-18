@@ -4,6 +4,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+from django.utils.translation import ugettext as _
 from django.core.cache import cache
 from django.contrib import messages
 from post.models import Post, Comment
@@ -99,7 +100,7 @@ def add_post(request):
             post.name = post_name
             post.content = post_content
             post.user = request.user
-            post.is_visible = False
+            post.is_visible = True
             post.save()
             return HttpResponseRedirect(reverse('detail', args=[post.pk]))
         else:
@@ -111,3 +112,25 @@ def add_post(request):
         ctx = {"form": form} 
     return render(request, "add_post.html", ctx)
 
+
+@login_required(login_url='/account/profile/')
+def edit_post(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    if request.method == "POST":
+        form = PostAddForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.info(request, _("post update is successful"))
+            return HttpResponseRedirect(reverse("edit_post", args=[post.id]))
+        else:
+            messages.warning(request, _("post update is unsuccessful"))
+            return HttpResponseRedirect(reverse("edit_post", args=[post.id]))
+    else:
+        if not post.user == request.user:
+            messages.warning(request, "this post not yours") #translate'in yalancisiyim :(
+            return HttpResponseRedirect(reverse("user_profile"))
+
+    form = PostAddForm(instance=post)
+
+    ctx = {"form": form, "post_id": post_id}
+    return render(request, "edit_post.html", ctx)
