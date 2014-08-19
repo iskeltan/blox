@@ -1,4 +1,5 @@
 {% load humanize  %}
+{% load i18n %}
     {% include "header.html" %}
         <div id="container">
             <div class="post">
@@ -40,7 +41,7 @@
                 <p>{{ comment_form.comment }}</p>
                 {{ comment_form.email.errors }}
                 {{ comment_form.comment.errors }}
-                <p><input type="submit" name="add_comment" id="add_comment" value="Gönder" /></p>
+                <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
             </form>
                 <div class="cl"></div>
                 </div>
@@ -53,7 +54,7 @@
                 <p>{{ comment_form.comment }}</p>
                 {{ comment_form.email.errors }}
                 {{ comment_form.comment.errors }}
-                <p><input type="submit" name="add_comment" id="add_comment" value="Gönder" /></p>
+                <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
             </form>
         </div>
         </div>

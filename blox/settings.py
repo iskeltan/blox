@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from django.utils.translation import ugettext as _
 import djcelery
 djcelery.setup_loader()
 BROKER_URL = "amqp://guest:guest@localhost:5672"
@@ -42,7 +43,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.humanize',
     'django.contrib.sites',
-#TODO:   'django.contrib.il8n',
     'blox',
     'post',
     'account',
@@ -51,11 +51,13 @@ INSTALLED_APPS = (
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 )
 
 ROOT_URLCONF = 'blox.urls'
@@ -76,10 +78,16 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
-LANGUAGE_CODE = 'tr-TR'
+LANGUAGE_CODE = 'en'
+
+
+LANGUAGES = (
+    ('tr', _('Turkish')),
+    ('en', _('English'))
+)
 
 TIME_ZONE = 'UTC'
-
+ 
 USE_I18N = True
 
 USE_L10N = True
@@ -98,6 +106,14 @@ STATICFILES_DIRS = (
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, "templates"),
+)
+
+#settings.TEMPLATE_CONTEXT_PROCESSORS += (
+#            'django.core.context_processors.i18n',
+#        )
+
+LOCALE_PATHS = (
+           os.path.join(BASE_DIR, 'locale'),
 )
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'

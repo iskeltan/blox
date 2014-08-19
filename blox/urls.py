@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     url(r'^comment/activate/(?P<activation_code>.*)/$','post.views.activate_comment', name='activate_comment'),
 
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 urlpatterns += patterns('django.views.static',

@@ -1,4 +1,5 @@
 {% load humanize  %}
+{% load i18n %}
     {% include "header.html" %}
         <div id="container">
         {% for post in posts %}
@@ -7,7 +8,8 @@
                 <div class="content">
                     {{ post.content }}
                 </div>
-                <div class="info"><i>{{ post.updated_at|naturaltime }} yazıldı | Yazar: <a href="#">{{ post.user.first_name }}</a></i></div>
+                <div class="info"><i>
+    {{ post.updated_at|naturaltime }} yazıldı |{% trans 'Author' %}: <a href="#">{{ post.user.first_name }}</a></i></div>
 
             </div>
             {% endfor %}

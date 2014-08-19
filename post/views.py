@@ -60,16 +60,16 @@ def add_comment(request, post_id, obj_name, obj_id):
 
         if request.user.is_authenticated():
             comment_form = CommentForm(request.POST, initial=initial_data)
-            messages.info(request, "your comment has been added")
+            messages.info(request, _("your comment has been added"))
         else:
             comment_form = CommentForm_no_auth(request.POST, initial=initial_data)
-            messages.info(request, "your comment has been added but must confirm with email required ")
+            messages.info(request, _("your comment has been added but must confirm with email required "))
 
         if comment_form.is_valid():
             comment_form.save()
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
         else:
-            messages.warning(request, "this comment is not valid ")
+            messages.warning(request, _("this comment is not valid "))
             return HttpResponseRedirect(reverse("detail", args=[post_id]))
     else:
         return HttpResponseRedirect("/")
@@ -82,9 +82,9 @@ def activate_comment(request, activation_code):
         comment = comment[0]
         comment.is_active = True
         comment.save()
-        messages.info(request, "your comment has been activated")
+        messages.info(request, _("your comment has been activated"))
     else:
-        messages.error(request, "invalid activation key")
+        messages.error(request, _("invalid activation key"))
 
     return HttpResponseRedirect(reverse('detail', args=[comment.post.id]))
 
@@ -104,7 +104,7 @@ def add_post(request):
             post.save()
             return HttpResponseRedirect(reverse('detail', args=[post.pk]))
         else:
-            form.errors["name"] = "form is not valid"
+            messages.error(request, _("form is not valid"))
 
         ctx = {"form": form }
     else:
@@ -127,7 +127,7 @@ def edit_post(request, post_id):
             return HttpResponseRedirect(reverse("edit_post", args=[post.id]))
     else:
         if not post.user == request.user:
-            messages.warning(request, "this post not yours") #translate'in yalancisiyim :(
+            messages.warning(request, _("this post not yours"))
             return HttpResponseRedirect(reverse("user_profile"))
 
     form = PostAddForm(instance=post)

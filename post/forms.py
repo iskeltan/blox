@@ -15,8 +15,8 @@ class CommentForm_no_auth(forms.ModelForm):
         model = Comment
         fields = ['comment', 'email']
         widgets = {
-            "comment" : forms.Textarea(attrs={"placeHolder":"write a comment"}),
-            "email" : forms.TextInput(attrs={"placeHolder":"E-Mail Address"}),
+            "comment" : forms.Textarea(attrs={"placeHolder":_("write a comment")}),
+            "email" : forms.TextInput(attrs={"placeHolder":_("E-Mail Address")}),
         }
 
     def clean_email(self):
@@ -54,7 +54,7 @@ class CommentForm(forms.ModelForm):
 
         fields = ['comment']
         widgets = {
-            "comment": forms.Textarea(attrs={"placeHolder":"write a comment"})
+            "comment": forms.Textarea(attrs={"placeHolder":_("write a comment")})
         }
     
     def save(self):

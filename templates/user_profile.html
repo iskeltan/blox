@@ -1,10 +1,11 @@
-    {% include "header.html" %}
+{% load i18n %}
+{% include "header.html" %}
         <div id="container">
             <div class="cl"><br></div>
             <div id="profile-menu">
-                <a href="javascript:void(0);" tab="profile-info" class="active-head">Profil Bilgilerin</a> 
-                <a href="javascript:void(0);" tab="posts">Yazıların</a> 
-                <a href="javascript:void(0);" tab="password-change">Şifre Değiştir</a> 
+                <a href="javascript:void(0);" tab="profile-info" class="active-head">{% trans 'Profile Info' %}</a> 
+                <a href="javascript:void(0);" tab="posts">{% trans 'Your Posts' %}</a> 
+                <a href="javascript:void(0);" tab="password-change">{% trans 'Password Change' %}</a> 
             </div>
             <div class="cl"><br></div>
             <div id="profile-info" class="profile-tab active">
@@ -21,7 +22,7 @@
             </div>
             {% endfor %}
             <div class="line">
-                <input type="submit" name="submit" value="update" />
+                <input type="submit" name="submit" value="{% trans 'update' %}" />
             </div>
           </div>
           </form>
@@ -29,13 +30,13 @@
             <div id="posts" class="profile-tab">
                 <table border="1">
                     <tr>
-                        <th>Yazı</th>
-                        <th>Düzenle</th>
+                        <th>{% trans 'Post' %}</th>
+                        <th>{% trans 'Edit' %}</th>
                     </tr>
             {% for post in posts %}
                     <tr>
                         <td><a href="{% url 'detail' post.id %}">{{ post.name }}</td>
-                        <td><a href="{% url 'edit_post' post_id=post.id %}">Düzenle</a></td>
+                        <td><a href="{% url 'edit_post' post_id=post.id %}">{% trans 'Edit' %}</a></td>
                     </tr>
             {% endfor %}
                 </table>
@@ -54,7 +55,7 @@
             </div>
             {% endfor %}
             <div class="line">
-                <input type="submit" name="submit" value="update" />
+                <input type="submit" name="submit" value="{% trans 'update' %}" />
             </div>
           </div>
           </form>

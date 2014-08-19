@@ -1,4 +1,5 @@
-    {% include "header.html" %}
+{% load i18n %}
+{% include "header.html" %}
         <div id="container">
           <form method="POST" action="{% url 'edit_post' post_id %}">
           {% csrf_token %}
@@ -13,7 +14,7 @@
             </div>
             {% endfor %}
             <div class="line">
-                <input type="submit" name="submit" value="register" />
+                <input type="submit" name="submit" value="{% trans 'save' %}" />
             </div>
 
 

@@ -1,3 +1,4 @@
+{% load i18n %}
 {% load humanize  %}
     {% include "header.html" %}
         <div id="container">
@@ -8,7 +9,7 @@
           {% for field in register_form %}
             <div class="line">
                 {% if field.name == "username" %}
-                    <label for="id_username">Email Address</label>
+                    <label for="id_username">{% trans 'Email Address' %}</label>
                 {% else %}
                     {{ field.label_tag }}
                 {% endif %}
@@ -18,7 +19,7 @@
             </div>
             {% endfor %}
             <div class="line">
-                <input type="submit" name="submit" value="register" />
+                <input type="submit" name="submit" value="{% trans 'register' %}" />
             </div>
 
 

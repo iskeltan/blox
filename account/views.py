@@ -26,12 +26,12 @@ def login_view(request):
                     return HttpResponseRedirect(reverse('home'))
                 else:
                     form = LoginForm(request.POST)
-                    messages.warning(request, "this user is not active")
+                    messages.warning(request, _("this user is not active"))
                     ctx = { "login_form": form}
                     return render(request, "login.html", ctx)
             else:
                 form = LoginForm(request.POST)
-                form.errors["email"] = _("boyle bir kullanici yok")
+                form.errors["email"] = _("no such user")
                 messages.error(request, "no such user")
                 ctx = { "login_form": form}
                 return render(request, "login.html", ctx)
@@ -75,7 +75,7 @@ def register_view(request):
 def activate_user(request, activation_code):
     activation_code = ''.join(activation_code)
     if not activation_code:
-        return HttpResponse('invalid code')
+        return HttpResponse(_('invalid code'))
     print activation_code
 
     user_profile = UserProfile.objects.filter(activation_code=activation_code)
@@ -89,7 +89,7 @@ def activate_user(request, activation_code):
         return HttpResponseRedirect(reverse('home'))
     user_profile.user.is_active = True
     user_profile.user.save()
-    messages.info(request, "activate your account")
+    messages.info(request, _("activate your account"))
     return HttpResponseRedirect(reverse('home'))
 
 
