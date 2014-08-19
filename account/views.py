@@ -1,13 +1,14 @@
 #-*- coding: utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.utils.translation import ugettext as _
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, check_password
 from django.contrib.auth.decorators import login_required
-from account.forms import LoginForm, RegisterForm, UserProfileForm
+from account.forms import LoginForm, RegisterForm, UserProfileForm, \
+         UserPasswordChangeForm
 from account.models import UserProfile
 from post.models import Post
 import ipdb
@@ -44,6 +45,7 @@ def login_view(request):
         return render(request, "login.html", ctx)
 
 
+@login_required        
 def logout_view(request):
     if request.GET.get('im') == 'sure':
         logout(request)
@@ -92,10 +94,11 @@ def activate_user(request, activation_code):
 
 
 
-@login_required(login_url='/account/login/')
+@login_required
 def user_profile(request):
+    user_profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
-        profile_form = UserProfileForm(request.POST)
+        profile_form = UserProfileForm(request.POST, instance=user_profile)
         if profile_form.is_valid():
             profile_form.save()
             return HttpResponseRedirect(reverse('user_profile'))
@@ -104,6 +107,34 @@ def user_profile(request):
             return render(request, "user_profile.html", ctx )
     else:
         user_post = Post.objects.filter(user=request.user)
-        profile_form = UserProfileForm()
-        ctx = {"profile_form": profile_form, "posts": user_post }
+        profile_form = UserProfileForm(instance=user_profile)
+        password_change_form = UserPasswordChangeForm()
+        ctx = {"profile_form": profile_form, "posts": user_post,
+            "password_change_form": password_change_form }
         return render(request, "user_profile.html", ctx)
+
+
+@login_required        
+def password_change(request):
+    if request.method == "POST":
+        form = UserPasswordChangeForm(request.POST)
+        if form.is_valid():
+            old_password = form.cleaned_data["password"]
+            new_password = form.cleaned_data["new_password"]
+            new_password_c = form.cleaned_data["new_password_c"]
+            if not request.user.check_password(old_password): 
+                messages.warning(request, _("old password not matching"))
+                return HttpResponseRedirect(reverse('user_profile'))
+            if not new_password == new_password_c:
+                messages.warning(request, _("passwords not matching"))
+                return HttpResponseRedirect(reverse('user_profile'))
+            user = User.objects.get(id=request.user.id)
+            user.set_password(new_password)
+            user.save()
+            messages.info(request, _("password change successful"))
+            return HttpResponseRedirect(reverse("user_profile"))
+        else:
+            messages.warning(request, _("form is not valid"))
+            return HttpResponseRedirect(reverse("user_profile"))
+    else:
+        return HttpResponseRedirect(reverse("user_profile"))

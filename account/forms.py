@@ -13,17 +13,21 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['email','password']
-
+        widgets = {
+           'password': forms.PasswordInput(),
+       }
 
 class RegisterForm(forms.ModelForm):
-    password_c = forms.CharField(label="confrim password")
+    password_c = forms.CharField(label="confrim password", widget=forms.PasswordInput())
     bio = forms.CharField(widget=forms.Textarea)
 
 
     class Meta:
         model = User
         fields = ['email', 'first_name', 'last_name', 'password']
-
+        widgets = {
+            'password': forms.PasswordInput(),
+        }
     def clean_password_c(self):
         password = self.cleaned_data["password"]
         password_c = self.cleaned_data["password_c"]
@@ -76,4 +80,10 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ["bio", "avatar" ]
+
+
+class UserPasswordChangeForm(forms.Form):
+    password = forms.CharField(label="old password", widget=forms.PasswordInput())
+    new_password = forms.CharField(label="new password", widget=forms.PasswordInput())
+    new_password_c = forms.CharField(label="new password (confrim)", widget=forms.PasswordInput())
 

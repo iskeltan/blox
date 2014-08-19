@@ -50,7 +50,8 @@ body{ font-family:Arial; background:#efefef; }
 
 #container .profile-tab{ display:none; background:rgba(21,118,179,0.3); margin-top:-9px; padding:5px; 
     border-radius:0 0 10px 0; }
-#container .active{ display:block; }    
+#container .active{ display:block; }
+#container .active-head{ background:#B35215 !important; }    
 
 .messages{ width:100%; overflow:hidden; position:absolute; }
 .messages li{ position:relative; left:25%; width:950px; color:white; font-size:11pt; padding:3px; font-weight:bold; } 

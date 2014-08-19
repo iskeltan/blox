@@ -2,13 +2,13 @@
         <div id="container">
             <div class="cl"><br></div>
             <div id="profile-menu">
-                <a href="javascript:void(0);" tab="profile-info">Profil Bilgilerin</a> 
+                <a href="javascript:void(0);" tab="profile-info" class="active-head">Profil Bilgilerin</a> 
                 <a href="javascript:void(0);" tab="posts">Yazıların</a> 
                 <a href="javascript:void(0);" tab="password-change">Şifre Değiştir</a> 
             </div>
             <div class="cl"><br></div>
             <div id="profile-info" class="profile-tab active">
-           <form method="POST" action="{% url 'add_post' %}">
+          <form method="POST" action="{% url 'user_profile' %}">
           {% csrf_token %}
           <div id="form" style="width:350px;">
           {{ profile_form.field_errors }}
@@ -39,10 +39,25 @@
                     </tr>
             {% endfor %}
                 </table>
-               {% comment %}  {% for post in posts %}{% endfor %} {% endcomment %}
             </div>
             <div id="password-change" class="profile-tab">
-                profile tab password change
+          <form method="POST" action="{% url 'password_change' %}">
+          {% csrf_token %}
+          <div id="form" style="width:400px;">
+          {{ password_change_form.field_errors }}
+          {% for field in password_change_form %}
+            <div class="line">
+                {{ field.label_tag }}
+                {% if field.field.required %}<span class="required">*</span>{% endif %}
+                {{ field }}
+                {{ field.errors }}
+            </div>
+            {% endfor %}
+            <div class="line">
+                <input type="submit" name="submit" value="update" />
+            </div>
+          </div>
+          </form>
             </div>
         </div>
     </body>
@@ -52,11 +67,14 @@
             $("#posts").hide();
             $("#password-change").hide();
 
+            $("#profile-menu a").removeClass("active-head");
+
         }
         $(function(){
             $("#profile-menu a").click(function(){
                 $tab = $(this).attr("tab");
                 hide_all();
+                $(this).addClass("active-head");
                 $("#"+$tab).toggle();
             });                    
         });
