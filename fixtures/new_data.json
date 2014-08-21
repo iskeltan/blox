@@ -1,0 +1,1310 @@
+[
+{
+    "pk": 1, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "logentry", 
+        "name": "log entry", 
+        "app_label": "admin"
+    }
+},
+{
+    "pk": 2, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "permission", 
+        "name": "permission", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 3, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "group", 
+        "name": "group", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 4, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "user", 
+        "name": "user", 
+        "app_label": "auth"
+    }
+},
+{
+    "pk": 5, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "contenttype", 
+        "name": "content type", 
+        "app_label": "contenttypes"
+    }
+},
+{
+    "pk": 6, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "session", 
+        "name": "session", 
+        "app_label": "sessions"
+    }
+},
+{
+    "pk": 7, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "site", 
+        "name": "site", 
+        "app_label": "sites"
+    }
+},
+{
+    "pk": 8, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "post", 
+        "name": "post", 
+        "app_label": "post"
+    }
+},
+{
+    "pk": 9, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "comment", 
+        "name": "comment", 
+        "app_label": "post"
+    }
+},
+{
+    "pk": 10, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "userprofile", 
+        "name": "user profile", 
+        "app_label": "account"
+    }
+},
+{
+    "pk": 11, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "taskmeta", 
+        "name": "task state", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 12, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "tasksetmeta", 
+        "name": "saved group result", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 13, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "intervalschedule", 
+        "name": "interval", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 14, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "crontabschedule", 
+        "name": "crontab", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 15, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "periodictasks", 
+        "name": "periodic tasks", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 16, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "periodictask", 
+        "name": "periodic task", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 17, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "workerstate", 
+        "name": "worker", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": 18, 
+    "model": "contenttypes.contenttype", 
+    "fields": {
+        "model": "taskstate", 
+        "name": "task", 
+        "app_label": "djcelery"
+    }
+},
+{
+    "pk": "hggag10jls9e4t8f84xnkgca811ivgnd", 
+    "model": "sessions.session", 
+    "fields": {
+        "expire_date": "2014-08-29T05:12:13.359Z", 
+        "session_data": "M2JmNDgzNjFmNDA0NzAzMzMwZTE0Zjc5MThkODlhODMxOWVkYzE4YTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImFjY291bnQuY3VzdG9tX2JhY2tlbmQuQmxveEVtYWlsQXV0aEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoxfQ=="
+    }
+},
+{
+    "pk": "mon5o3g5q9vqo7i9zqguf38tvvry7ss0", 
+    "model": "sessions.session", 
+    "fields": {
+        "expire_date": "2014-09-01T12:20:40.077Z", 
+        "session_data": "M2JmNDgzNjFmNDA0NzAzMzMwZTE0Zjc5MThkODlhODMxOWVkYzE4YTp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImFjY291bnQuY3VzdG9tX2JhY2tlbmQuQmxveEVtYWlsQXV0aEJhY2tlbmQiLCJfYXV0aF91c2VyX2lkIjoxfQ=="
+    }
+},
+{
+    "pk": "tii5yp2hs07p4pjuxrwdlynghb8rj72z", 
+    "model": "sessions.session", 
+    "fields": {
+        "expire_date": "2014-09-04T07:45:59.183Z", 
+        "session_data": "Mjg0YzEzYzg5Mjc5YjhkMmJiNzUzYzQwM2IyNzljNzk5NTE1YjMyMjp7Il9hdXRoX3VzZXJfYmFja2VuZCI6ImFjY291bnQuY3VzdG9tX2JhY2tlbmQuQmxveEVtYWlsQXV0aEJhY2tlbmQiLCJkamFuZ29fbGFuZ3VhZ2UiOiJ0ciIsIl9hdXRoX3VzZXJfaWQiOjN9"
+    }
+},
+{
+    "pk": 1, 
+    "model": "sites.site", 
+    "fields": {
+        "domain": "localhost:8000", 
+        "name": "localhost:8000"
+    }
+},
+{
+    "pk": 1, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "SUCCESS", 
+        "task_id": "af71aef0-dd2b-49e7-b1e3-c4af875e224a", 
+        "date_done": "2014-08-15T10:14:17.339Z", 
+        "traceback": null, 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": null, 
+        "hidden": false
+    }
+},
+{
+    "pk": 2, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "SUCCESS", 
+        "task_id": "46f74c77-c4c6-4680-94ad-391fba6f12da", 
+        "date_done": "2014-08-15T11:02:38.608Z", 
+        "traceback": null, 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": null, 
+        "hidden": false
+    }
+},
+{
+    "pk": 3, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "FAILURE", 
+        "task_id": "24367019-f541-4401-8eb3-2405cce5524e", 
+        "date_done": "2014-08-15T11:20:35.304Z", 
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ahmet/Envs/oe/local/lib/python2.7/site-packages/celery/app/trace.py\", line 240, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/ahmet/Envs/oe/local/lib/python2.7/site-packages/celery/app/trace.py\", line 437, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/ahmet/Desktop/blox/blox/tasks.py\", line 21, in send_user_activation_mail\n    body = \"go to this link for user activation: http://%s/activate/account/%s/\" %(site, \\\nNameError: global name 'site' is not defined\n", 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": "gAJjZXhjZXB0aW9ucwpOYW1lRXJyb3IKcQFVIWdsb2JhbCBuYW1lICdzaXRlJyBpcyBub3QgZGVmaW5lZHEChXEDUnEELg==", 
+        "hidden": false
+    }
+},
+{
+    "pk": 4, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "FAILURE", 
+        "task_id": "60f7b6dc-613f-4eaf-9af3-925ae6967994", 
+        "date_done": "2014-08-15T11:22:03.991Z", 
+        "traceback": "Traceback (most recent call last):\n  File \"/home/ahmet/Envs/oe/local/lib/python2.7/site-packages/celery/app/trace.py\", line 240, in trace_task\n    R = retval = fun(*args, **kwargs)\n  File \"/home/ahmet/Envs/oe/local/lib/python2.7/site-packages/celery/app/trace.py\", line 437, in __protected_call__\n    return self.run(*args, **kwargs)\n  File \"/home/ahmet/Desktop/blox/blox/tasks.py\", line 21, in send_user_activation_mail\n    body = \"go to this link for user activation: http://%s/activate/account/%s/\" %(site, \\\nNameError: global name 'site' is not defined\n", 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": "gAJjZXhjZXB0aW9ucwpOYW1lRXJyb3IKcQFVIWdsb2JhbCBuYW1lICdzaXRlJyBpcyBub3QgZGVmaW5lZHEChXEDUnEELg==", 
+        "hidden": false
+    }
+},
+{
+    "pk": 5, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "SUCCESS", 
+        "task_id": "c9758201-01b5-452b-bb37-0c0a29139fac", 
+        "date_done": "2014-08-15T11:25:55.305Z", 
+        "traceback": null, 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": null, 
+        "hidden": false
+    }
+},
+{
+    "pk": 6, 
+    "model": "djcelery.taskmeta", 
+    "fields": {
+        "status": "SUCCESS", 
+        "task_id": "2823daee-2634-43e3-bee1-c48531ab0aed", 
+        "date_done": "2014-08-20T12:38:28.136Z", 
+        "traceback": null, 
+        "meta": "eJxrYKotZIzgYGBgSM7IzEkpSs2LLdYDADylBhk=", 
+        "result": null, 
+        "hidden": false
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_logentry", 
+        "name": "Can add log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_logentry", 
+        "name": "Can change log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_logentry", 
+        "name": "Can delete log entry", 
+        "content_type": 1
+    }
+},
+{
+    "pk": 4, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_permission", 
+        "name": "Can add permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 5, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_permission", 
+        "name": "Can change permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 6, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_permission", 
+        "name": "Can delete permission", 
+        "content_type": 2
+    }
+},
+{
+    "pk": 7, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_group", 
+        "name": "Can add group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_group", 
+        "name": "Can change group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 9, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_group", 
+        "name": "Can delete group", 
+        "content_type": 3
+    }
+},
+{
+    "pk": 10, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_user", 
+        "name": "Can add user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 11, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_user", 
+        "name": "Can change user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 12, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_user", 
+        "name": "Can delete user", 
+        "content_type": 4
+    }
+},
+{
+    "pk": 13, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_contenttype", 
+        "name": "Can add content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 14, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_contenttype", 
+        "name": "Can change content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 15, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_contenttype", 
+        "name": "Can delete content type", 
+        "content_type": 5
+    }
+},
+{
+    "pk": 16, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_session", 
+        "name": "Can add session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 17, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_session", 
+        "name": "Can change session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 18, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_session", 
+        "name": "Can delete session", 
+        "content_type": 6
+    }
+},
+{
+    "pk": 19, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_site", 
+        "name": "Can add site", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 20, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_site", 
+        "name": "Can change site", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 21, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_site", 
+        "name": "Can delete site", 
+        "content_type": 7
+    }
+},
+{
+    "pk": 22, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_post", 
+        "name": "Can add post", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 23, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_post", 
+        "name": "Can change post", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 24, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_post", 
+        "name": "Can delete post", 
+        "content_type": 8
+    }
+},
+{
+    "pk": 25, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_comment", 
+        "name": "Can add comment", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 26, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_comment", 
+        "name": "Can change comment", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 27, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_comment", 
+        "name": "Can delete comment", 
+        "content_type": 9
+    }
+},
+{
+    "pk": 28, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_userprofile", 
+        "name": "Can add user profile", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 29, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_userprofile", 
+        "name": "Can change user profile", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 30, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_userprofile", 
+        "name": "Can delete user profile", 
+        "content_type": 10
+    }
+},
+{
+    "pk": 31, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_taskmeta", 
+        "name": "Can add task state", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 32, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_taskmeta", 
+        "name": "Can change task state", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 33, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_taskmeta", 
+        "name": "Can delete task state", 
+        "content_type": 11
+    }
+},
+{
+    "pk": 34, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_tasksetmeta", 
+        "name": "Can add saved group result", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 35, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_tasksetmeta", 
+        "name": "Can change saved group result", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 36, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_tasksetmeta", 
+        "name": "Can delete saved group result", 
+        "content_type": 12
+    }
+},
+{
+    "pk": 37, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_intervalschedule", 
+        "name": "Can add interval", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 38, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_intervalschedule", 
+        "name": "Can change interval", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 39, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_intervalschedule", 
+        "name": "Can delete interval", 
+        "content_type": 13
+    }
+},
+{
+    "pk": 40, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_crontabschedule", 
+        "name": "Can add crontab", 
+        "content_type": 14
+    }
+},
+{
+    "pk": 41, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_crontabschedule", 
+        "name": "Can change crontab", 
+        "content_type": 14
+    }
+},
+{
+    "pk": 42, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_crontabschedule", 
+        "name": "Can delete crontab", 
+        "content_type": 14
+    }
+},
+{
+    "pk": 43, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_periodictasks", 
+        "name": "Can add periodic tasks", 
+        "content_type": 15
+    }
+},
+{
+    "pk": 44, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_periodictasks", 
+        "name": "Can change periodic tasks", 
+        "content_type": 15
+    }
+},
+{
+    "pk": 45, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_periodictasks", 
+        "name": "Can delete periodic tasks", 
+        "content_type": 15
+    }
+},
+{
+    "pk": 46, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_periodictask", 
+        "name": "Can add periodic task", 
+        "content_type": 16
+    }
+},
+{
+    "pk": 47, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_periodictask", 
+        "name": "Can change periodic task", 
+        "content_type": 16
+    }
+},
+{
+    "pk": 48, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_periodictask", 
+        "name": "Can delete periodic task", 
+        "content_type": 16
+    }
+},
+{
+    "pk": 49, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_workerstate", 
+        "name": "Can add worker", 
+        "content_type": 17
+    }
+},
+{
+    "pk": 50, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_workerstate", 
+        "name": "Can change worker", 
+        "content_type": 17
+    }
+},
+{
+    "pk": 51, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_workerstate", 
+        "name": "Can delete worker", 
+        "content_type": 17
+    }
+},
+{
+    "pk": 52, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "add_taskstate", 
+        "name": "Can add task", 
+        "content_type": 18
+    }
+},
+{
+    "pk": 53, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "change_taskstate", 
+        "name": "Can change task", 
+        "content_type": 18
+    }
+},
+{
+    "pk": 54, 
+    "model": "auth.permission", 
+    "fields": {
+        "codename": "delete_taskstate", 
+        "name": "Can delete task", 
+        "content_type": 18
+    }
+},
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "admin", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2014-08-18T12:20:40.034Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$4XbR2flFy80m$vPBglJhsznYXPjv/VvdMfWYYyqqvlc0Vl4Pm9GDfQd8=", 
+        "email": "admin@admin.com", 
+        "date_joined": "2014-08-15T05:12:03.723Z"
+    }
+},
+{
+    "pk": 2, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "3b37e4f45310eb3c0557e006eaf5c1", 
+        "first_name": "deneme", 
+        "last_name": "deneme", 
+        "is_active": false, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2014-08-15T11:20:35.146Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$FsebspomJG0W$EwKJs/vDxR1jImO4h3rYhNrHA7wPcP16Yp7oKSWgW6w=", 
+        "email": "a700527@trbvm.com", 
+        "date_joined": "2014-08-15T11:20:35.146Z"
+    }
+},
+{
+    "pk": 3, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "672836ba02e2c97b9b03f11a95dbe5", 
+        "first_name": "denemeee", 
+        "last_name": "deneme", 
+        "is_active": true, 
+        "is_superuser": false, 
+        "is_staff": false, 
+        "last_login": "2014-08-21T07:45:59.154Z", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$12000$1PK8HHyl8wAt$ay+pcktLB+sl1bz6dBOCoi6566QVVDgUX8LLCZsYbtc=", 
+        "email": "hyc39133@toiea.com", 
+        "date_joined": "2014-08-15T11:25:52.729Z"
+    }
+},
+{
+    "pk": 1, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1", 
+        "created_at": "2014-08-15T05:12:37.177Z", 
+        "updated_at": "2014-08-15T05:12:37.177Z", 
+        "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\r\n", 
+        "user": 1
+    }
+},
+{
+    "pk": 2, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "Deneme 2313", 
+        "created_at": "2014-08-15T09:51:48.599Z", 
+        "updated_at": "2014-08-18T12:21:02.280Z", 
+        "content": "deneme deneme", 
+        "user": 1
+    }
+},
+{
+    "pk": 3, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1 deneme edit 111", 
+        "created_at": "2014-08-18T11:28:23.818Z", 
+        "updated_at": "2014-08-18T12:56:38.969Z", 
+        "content": "deneme user\u0131ndan deneme bir yaz\u0131", 
+        "user": 3
+    }
+},
+{
+    "pk": 4, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1 deneme edit", 
+        "created_at": "2014-08-18T12:19:03.068Z", 
+        "updated_at": "2014-08-18T12:21:09.999Z", 
+        "content": "deneme user\u0131ndan deneme bir yaz\u0131 deneme", 
+        "user": 3
+    }
+},
+{
+    "pk": 5, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "asdf", 
+        "created_at": "2014-08-18T12:37:46.547Z", 
+        "updated_at": "2014-08-18T12:37:46.547Z", 
+        "content": "sdfgh", 
+        "user": 1
+    }
+},
+{
+    "pk": 6, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1 deneme bu neami\u015f", 
+        "created_at": "2014-08-18T12:41:02.970Z", 
+        "updated_at": "2014-08-18T12:41:02.970Z", 
+        "content": "deneme user\u0131ndan deneme bir yaz\u0131", 
+        "user": 3
+    }
+},
+{
+    "pk": 7, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1 deneme ercan ba\u015fgan", 
+        "created_at": "2014-08-18T12:44:04.538Z", 
+        "updated_at": "2014-08-18T12:44:04.538Z", 
+        "content": "deneme user\u0131ndan deneme bir yaz\u0131 ercan ercan ba\u015fkanlar\u0131n ba\u015fkan\u0131", 
+        "user": 3
+    }
+},
+{
+    "pk": 8, 
+    "model": "post.post", 
+    "fields": {
+        "is_visible": true, 
+        "name": "deneme 1 deneme ercan reyiz ", 
+        "created_at": "2014-08-18T12:44:16.834Z", 
+        "updated_at": "2014-08-18T12:56:59.497Z", 
+        "content": "deneme user\u0131ndan deneme bir yaz\u0131 ercan ercan ba\u015fkanlar\u0131n ba\u015fkan\u0131", 
+        "user": 3
+    }
+},
+{
+    "pk": 1, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme ana yorum 1 ", 
+        "is_active": true, 
+        "object_id": 1, 
+        "user": 1, 
+        "content_type": 8, 
+        "post": 1, 
+        "activation_code": "", 
+        "email": ""
+    }
+},
+{
+    "pk": 2, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme alt yorum 1 ", 
+        "is_active": true, 
+        "object_id": 1, 
+        "user": 1, 
+        "content_type": 9, 
+        "post": 1, 
+        "activation_code": "", 
+        "email": ""
+    }
+},
+{
+    "pk": 3, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme alt yorum 2 ", 
+        "is_active": true, 
+        "object_id": 1, 
+        "user": 1, 
+        "content_type": 9, 
+        "post": 1, 
+        "activation_code": "", 
+        "email": ""
+    }
+},
+{
+    "pk": 4, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme 2. alt yorum 1 ", 
+        "is_active": true, 
+        "object_id": 2, 
+        "user": 1, 
+        "content_type": 9, 
+        "post": 1, 
+        "activation_code": "", 
+        "email": ""
+    }
+},
+{
+    "pk": 5, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme 2 alt yorum 2", 
+        "is_active": true, 
+        "object_id": 2, 
+        "user": 1, 
+        "content_type": 9, 
+        "post": 1, 
+        "activation_code": "", 
+        "email": ""
+    }
+},
+{
+    "pk": 6, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "denemeee", 
+        "is_active": false, 
+        "object_id": 1, 
+        "user": null, 
+        "content_type": 8, 
+        "post": 1, 
+        "activation_code": "55a5332dc26439f2de6b6d50a8fcf19bcbdcd663e9c023dac3", 
+        "email": "iskeltan8@gmail.com"
+    }
+},
+{
+    "pk": 7, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme", 
+        "is_active": true, 
+        "object_id": 1, 
+        "user": 1, 
+        "content_type": 9, 
+        "post": 1, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 8, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme ", 
+        "is_active": false, 
+        "object_id": 1, 
+        "user": null, 
+        "content_type": 8, 
+        "post": 1, 
+        "activation_code": "80973e8c29c02421978de47ddefe8592f6b64b75e3f545672f", 
+        "email": "iskeltan8@gmail.com"
+    }
+},
+{
+    "pk": 9, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme 1 deneme ercan reyiz yorum 1 ana", 
+        "is_active": true, 
+        "object_id": 8, 
+        "user": 3, 
+        "content_type": 8, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 10, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme 1 deneme ercan reyiz yorum 1 ana alt yorum 1", 
+        "is_active": true, 
+        "object_id": 9, 
+        "user": 3, 
+        "content_type": 9, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 11, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "sadfasdfasdfsd", 
+        "is_active": true, 
+        "object_id": 8, 
+        "user": 3, 
+        "content_type": 8, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 12, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "asdasd", 
+        "is_active": true, 
+        "object_id": 8, 
+        "user": 3, 
+        "content_type": 8, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 13, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme", 
+        "is_active": true, 
+        "object_id": 6, 
+        "user": 3, 
+        "content_type": 8, 
+        "post": 6, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 14, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme", 
+        "is_active": true, 
+        "object_id": 9, 
+        "user": 3, 
+        "content_type": 9, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 15, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "denme", 
+        "is_active": true, 
+        "object_id": 9, 
+        "user": 3, 
+        "content_type": 9, 
+        "post": 8, 
+        "activation_code": "0", 
+        "email": null
+    }
+},
+{
+    "pk": 16, 
+    "model": "post.comment", 
+    "fields": {
+        "comment": "deneme", 
+        "is_active": false, 
+        "object_id": 9, 
+        "user": null, 
+        "content_type": 9, 
+        "post": 8, 
+        "activation_code": "52a2b66187f3060af87c48752e4546cb2cfe1a51fae4488a20", 
+        "email": "a1049963@trbvm.com"
+    }
+},
+{
+    "pk": 1, 
+    "model": "account.userprofile", 
+    "fields": {
+        "bio": "deneme", 
+        "activation_code": "3b37e4f45310eb3c0557e006eaf5c118798b2eb3c20798314b", 
+        "user": 2, 
+        "avatar": ""
+    }
+},
+{
+    "pk": 2, 
+    "model": "account.userprofile", 
+    "fields": {
+        "bio": "denemeeee", 
+        "activation_code": "672836ba02e2c97b9b03f11a95dbe54e08ae964a6d531c5dce", 
+        "user": 3, 
+        "avatar": "deneme"
+    }
+},
+{
+    "pk": 1, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:12:37.179Z", 
+        "object_repr": "deneme 1", 
+        "object_id": "1", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 8
+    }
+},
+{
+    "pk": 2, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:12:58.035Z", 
+        "object_repr": "admin:deneme ana", 
+        "object_id": "1", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 9
+    }
+},
+{
+    "pk": 3, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:13:12.124Z", 
+        "object_repr": "admin:deneme alt", 
+        "object_id": "2", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 9
+    }
+},
+{
+    "pk": 4, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:13:30.150Z", 
+        "object_repr": "admin:deneme alt", 
+        "object_id": "3", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 9
+    }
+},
+{
+    "pk": 5, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:13:44.560Z", 
+        "object_repr": "admin:deneme 2. ", 
+        "object_id": "4", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 9
+    }
+},
+{
+    "pk": 6, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-15T05:14:05.463Z", 
+        "object_repr": "admin:deneme 2 a", 
+        "object_id": "5", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 9
+    }
+},
+{
+    "pk": 7, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2014-08-15T11:23:10.789Z", 
+        "object_repr": "localhost:8000", 
+        "object_id": "1", 
+        "change_message": "domain ve name de\u011fi\u015ftirildi.", 
+        "user": 1, 
+        "content_type": 7
+    }
+},
+{
+    "pk": 8, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 3, 
+        "action_time": "2014-08-15T11:23:26.463Z", 
+        "object_repr": "672836ba02e2c97b9b03f11a95dbe5", 
+        "object_id": "3", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 4
+    }
+},
+{
+    "pk": 9, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2014-08-18T12:21:02.282Z", 
+        "object_repr": "Deneme 2313", 
+        "object_id": "2", 
+        "change_message": "is_visible de\u011fi\u015ftirildi.", 
+        "user": 1, 
+        "content_type": 8
+    }
+},
+{
+    "pk": 10, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2014-08-18T12:21:05.926Z", 
+        "object_repr": "deneme 1 deneme user", 
+        "object_id": "3", 
+        "change_message": "is_visible de\u011fi\u015ftirildi.", 
+        "user": 1, 
+        "content_type": 8
+    }
+},
+{
+    "pk": 11, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 2, 
+        "action_time": "2014-08-18T12:21:10.000Z", 
+        "object_repr": "deneme 1 deneme edit", 
+        "object_id": "4", 
+        "change_message": "is_visible de\u011fi\u015ftirildi.", 
+        "user": 1, 
+        "content_type": 8
+    }
+},
+{
+    "pk": 12, 
+    "model": "admin.logentry", 
+    "fields": {
+        "action_flag": 1, 
+        "action_time": "2014-08-18T12:37:46.547Z", 
+        "object_repr": "asdf", 
+        "object_id": "5", 
+        "change_message": "", 
+        "user": 1, 
+        "content_type": 8
+    }
+}
+]

@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 from account.forms import LoginForm, RegisterForm, UserProfileForm, \
          UserPasswordChangeForm
 from account.models import UserProfile
+from blox.tasks import crop_image
 from post.models import Post
 import ipdb
 
@@ -98,11 +99,15 @@ def activate_user(request, activation_code):
 def user_profile(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == "POST":
-        profile_form = UserProfileForm(request.POST, instance=user_profile)
+        profile_form = UserProfileForm(request.POST,request.FILES, instance=user_profile)
         if profile_form.is_valid():
-            profile_form.save()
+            profile = profile_form.save()
+            messages.info(request, _("profile has been updated"))
+            avatar = profile.avatar.path
+            crop_image.delay(avatar)
             return HttpResponseRedirect(reverse('user_profile'))
         else:
+            messages.error(request, _("profile update could not be completed"))
             ctx = {"profile_form": profile_form}
             return render(request, "user_profile.html", ctx )
     else:

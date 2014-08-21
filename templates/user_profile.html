@@ -9,7 +9,7 @@
             </div>
             <div class="cl"><br></div>
             <div id="profile-info" class="profile-tab active">
-          <form method="POST" action="{% url 'user_profile' %}">
+          <form method="POST" action="{% url 'user_profile' %}" enctype="multipart/form-data">
           {% csrf_token %}
           <div id="form" style="width:350px;">
           {{ profile_form.field_errors }}

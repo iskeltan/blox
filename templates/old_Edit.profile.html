@@ -2,7 +2,7 @@
 {% load humanize  %}
     {% include "header.html" %}
         <div id="container">
-          <form method="POST" action="{% url 'edit_profile' %}">
+          <form method="POST" action="{% url 'edit_profile' %}" enctype="multipart/form-data">
           {% csrf_token %}
           <div id="form" style="width:350px;">
           {{ register_form.field_errors }}

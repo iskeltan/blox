@@ -24,11 +24,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = '$vn*nntpquc%&0dbj9k27n%dzimm8m%9-g^+(v2)i(p!516jng'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 SITE_ID = 1
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'blox',
     'post',
+    'post.templatetags',
     'account',
     'djcelery',
 )
@@ -99,6 +100,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = '/account/login/'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
