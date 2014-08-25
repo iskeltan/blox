@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-19 08:05+0000\n"
+"POT-Creation-Date: 2014-08-25 13:38+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,55 +41,64 @@ msgstr "yeni şifre"
 msgid "new password (confrim)"
 msgstr "yeni şifre(doğrulama)"
 
-#: account/views.py:29
+#: account/views.py:30
 msgid "this user is not active"
 msgstr "bu kullanıcı aktif değil"
 
-#: account/views.py:34
+#: account/views.py:35
 msgid "no such user"
 msgstr "böyle bir kullanıcı yok"
 
-#: account/views.py:63
+#: account/views.py:64
 msgid "your user has been created but need confirm email"
 msgstr "hesabın oluşturuldu ama e-posta ile doğrulama gerekli"
 
-#: account/views.py:78
+#: account/views.py:79
 msgid "invalid code"
 msgstr "geçersiz kod"
 
-#: account/views.py:85
+#: account/views.py:86
 msgid "this code does not belong to a user"
 msgstr "bu kod hiçbir kullanıcıya ait değil"
 
-#: account/views.py:88
+#: account/views.py:89
 msgid "this user is already activated"
 msgstr "bu kullanıcı zaten aktif"
 
-#: account/views.py:92
+#: account/views.py:93
 msgid "activate your account"
 msgstr "Hesabın aktif edildi"
 
-#: account/views.py:126
+#: account/views.py:105
+#, fuzzy
+msgid "profile has been updated"
+msgstr "yorumun eklendi"
+
+#: account/views.py:110
+msgid "profile update could not be completed"
+msgstr ""
+
+#: account/views.py:131
 msgid "old password not matching"
 msgstr "eski şifre uyuşmuyor"
 
-#: account/views.py:129
+#: account/views.py:134
 msgid "passwords not matching"
 msgstr "şifreler uyuşmuyor"
 
-#: account/views.py:134
+#: account/views.py:139
 msgid "password change successful"
 msgstr "şifre güncelleme başarılı"
 
-#: account/views.py:137 post/views.py:107
+#: account/views.py:142 post/views.py:138
 msgid "form is not valid"
 msgstr "form geçersiz"
 
-#: blox/settings.py:85
+#: blox/settings.py:86
 msgid "Turkish"
 msgstr ""
 
-#: blox/settings.py:86
+#: blox/settings.py:87
 msgid "English"
 msgstr ""
 
@@ -101,100 +110,105 @@ msgstr "bir yorum yaz"
 msgid "E-Mail Address"
 msgstr "E-Post Adresi"
 
-#: post/views.py:63
+#: post/views.py:94
 msgid "your comment has been added"
 msgstr "yorumun eklendi"
 
-#: post/views.py:66
+#: post/views.py:97
 msgid "your comment has been added but must confirm with email required "
 msgstr "yorumun eklendi ama e-posta doğrulaması gerekli"
 
-#: post/views.py:72
+#: post/views.py:103
 msgid "this comment is not valid "
 msgstr "bu yorum geçersiz"
 
-#: post/views.py:85
+#: post/views.py:116
 msgid "your comment has been activated"
 msgstr "yorumun aktif edildi"
 
-#: post/views.py:87
+#: post/views.py:118
 msgid "invalid activation key"
 msgstr "geçersiz aktivasyon kodu"
 
-#: post/views.py:123
+#: post/views.py:154
 msgid "post update is successful"
 msgstr "yazı güncelleme başarılı"
 
-#: post/views.py:126
+#: post/views.py:157
 msgid "post update is unsuccessful"
 msgstr "yazı güncelleme başarısız"
 
-#: post/views.py:130
+#: post/views.py:161
 msgid "this post not yours"
 msgstr "bu yazı senin değil"
 
-#: templates/add_post.html:16 templates/header.html:22
-#: templates/register.html:21
+#: templates/add_post.html:17 templates/header.html:27
+#: templates/register.html:22
 msgid "register"
 msgstr "kayıt"
 
-#: templates/detail.html:43 templates/detail.html.py:56
+#: templates/detail.html:50 templates/detail.html.py:64
+#: templates/yorum_amk.html:24
 msgid "send"
 msgstr "gönder"
 
-#: templates/edit_post.html:16 templates/edit_profile.html:21
+#: templates/edit_post.html:17 templates/old_Edit.profile.html:22
 msgid "save"
 msgstr "kaydet"
 
-#: templates/edit_profile.html:11 templates/login.html:11
-#: templates/register.html:11
-msgid "Email Address"
-msgstr "E-Posta Adresi"
-
-#: templates/header.html:14
+#: templates/header.html:19
 msgid "Home"
 msgstr "Anasayfa"
 
-#: templates/header.html:17
+#: templates/header.html:22
 msgid "add new post"
 msgstr "yeni yazı ekle"
 
-#: templates/header.html:18
+#: templates/header.html:23
 msgid "update profile"
 msgstr "profilini güncelle"
 
-#: templates/header.html:19
+#: templates/header.html:24
 msgid "logout"
 msgstr "çıkış"
 
-#: templates/header.html:21 templates/login.html:21
+#: templates/header.html:26 templates/login.html:22
 msgid "login"
 msgstr "giriş"
 
-#: templates/index.html:10
+#: templates/index.html:12
 msgid "Author"
 msgstr "Yazar"
 
-#: templates/user_profile.html:5
+#: templates/login.html:12 templates/old_Edit.profile.html:12
+#: templates/register.html:12
+msgid "Email Address"
+msgstr "E-Posta Adresi"
+
+#: templates/user_profile.html:6
 msgid "Profile Info"
 msgstr "Profil Bilgileri"
 
-#: templates/user_profile.html:6
+#: templates/user_profile.html:7
 msgid "Your Posts"
 msgstr "Senin Yazıların"
 
-#: templates/user_profile.html:7
+#: templates/user_profile.html:8
 msgid "Password Change"
 msgstr "Şifre Değiştir"
 
-#: templates/user_profile.html:24 templates/user_profile.html.py:57
+#: templates/user_profile.html:25 templates/user_profile.html.py:58
 msgid "update"
 msgstr "güncelle"
 
-#: templates/user_profile.html:32
+#: templates/user_profile.html:33
 msgid "Post"
 msgstr "Yazı"
 
-#: templates/user_profile.html:33 templates/user_profile.html.py:38
+#: templates/user_profile.html:34 templates/user_profile.html.py:39
 msgid "Edit"
 msgstr "Düzenle"
+
+#: templates/yorum_amk.html:16
+msgid "Answer"
+msgstr "Cevapla"

@@ -1,0 +1,30 @@
+{% load i18n %}
+{% for v in comments %}
+    <div class="comment">
+        {% if v.comment.user %}
+            <span class="username">{{ v.comment.user.username }}</span>
+        {% else %}
+            <span class="username">Anon</span>
+        {% endif %} 
+        <span class="content">{{ v.comment.comment }}</span>
+        {% if v.child %}
+            {% with comments=v.child template_name='comment_tree.html' %}
+                {% include template_name %}
+            {% endwith %}
+
+        {% endif %}
+        <span class="answer"><span>{% trans 'Answer' %}</span>
+  <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/comment/{{ v.comment.id }}/" style="display:none;">
+            {{ comment_form.field_errors }}
+            {% csrf_token %}
+                <p>{{ comment_form.email }}</p>
+                <p>{{ comment_form.comment }}</p>
+                {{ comment_form.email.errors }}
+                {{ comment_form.comment.errors }}
+                <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
+            </form>
+            </span>
+                <div class="cl"></div>
+
+    </div>
+{% endfor %}

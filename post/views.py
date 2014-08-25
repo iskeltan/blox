@@ -37,12 +37,43 @@ def detail(request, post_id):
     else:
         comment_form = CommentForm_no_auth()
 
-    all_comments = cache.get("post_comment-%s"%post_id)
-    if not all_comments:
-        all_comments = Comment.objects.filter(is_active=True, post=post)
-        cache.set("post_comment-%s"%post_id, all_comments)
+#    all_comments = cache.get("post_comment-%s"%post_id)
+#    if not all_comments:
+#        all_comments = Comment.objects.filter(is_active=True, post=post)
+#        cache.set("post_comment-%s"%post_id, all_comments)
 
-    ctx = { "post": post, "comment_form": comment_form, "all_comments": all_comments }
+    all_comments = Comment.objects.filter(is_active=True, post=post)
+    
+    dict = {}
+    new_dict = {}
+    for i in all_comments:
+        dict[i.pk] = {"comment": i, "parent": None}
+        if i.content_type.name == "comment":
+            dict[i.pk]["parent"] = i.object_id
+
+
+    for k in sorted(dict):
+        dict_object = dict[k]
+        new_dict[k] = {"comment": dict_object["comment"], "child" : [], "is_parent": True }
+        if dict_object["parent"]:
+            new_dict[k]["is_parent"] = False
+            new_dict[dict_object["parent"]]["child"].append(new_dict[k])
+
+
+#    for k in sorted(dict):
+#        dict_item = dict[k]
+#        new_dict[k] = {"comment": dict[k], "child": [], "is_parent": True }
+#        if dict_item["parent"]:
+#            new_dict[k]["is_parent"] = False
+#            new_dict[dict_item["parent"]]["child"].append(new_dict[k])
+#    for k,v in dict.items():
+#        new_dict[k] = {"comment": v["comment"], "child":[]}
+#        if v["parent"]:
+#            new_dict[v["parent"]]["child"].append(new_dict[k])
+
+
+    ctx = { "post": post, "comment_form": comment_form, "all_comments": all_comments, 
+        "comment_dict": new_dict }
     return render(request, "detail.html", ctx)
 
 

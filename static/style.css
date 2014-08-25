@@ -24,10 +24,10 @@ body{ font-family:Arial; background:#efefef; }
     text-align:center; margin-right:10px; }
 #container .pagination span a:hover{ background:#efefef; color:rgba(0,0,0,0.8);}
 
-#container #comment p textarea{ font-family:Arial; border:1px solid rgba(0,0,0,0.8); 
-    font-size:12pt; padding:15px; width:650px; min-height:100px;  }
+#container #comment p textarea#id_comment{ font-family:Arial; border:1px solid rgba(0,0,0,0.8); 
+    font-size:12pt; padding:15px; width:650px; height:100px;   }
 
-#container #comment .comment{ border:1px solid rgba(21,118,179,0.5); border-radius:10px;
+#container #comment .comment{ border-left:5px solid rgba(21,118,179,0.5); /*border-radius:10px;*/
     padding:10px; width:600px;   }
 #container #comment .comment .username{ font-weight:bold; color:rgb(21,118,179); display:block; }
 #container #comment .comment textarea{ width:200px !important; height:100px !important;  }
@@ -47,6 +47,9 @@ body{ font-family:Arial; background:#efefef; }
 #container #profile-menu a:nth-child(2){ border:0 1px 0 1px solid red; margin:-3px;}   
 #container #profile-menu a:nth-last-child(1){ border-radius:0 10px 0px 0; }
 #container #profile-menu a:hover{ background:#B35215; }   
+.answer{ display:block; color:#B35215; font-weight:bold; }
+#container .comment #comment_form p #id_comment{ height:25px !important; border:1px solid red; }
+/*#comment_form textarea{ width:250px !important; min-height:25px !important; height:25px!important; }        */
 
 #container .profile-tab{ display:none; background:rgba(21,118,179,0.3); margin-top:-9px; padding:5px; 
     border-radius:0 0 10px 0; }

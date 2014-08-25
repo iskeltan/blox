@@ -25,16 +25,37 @@
         </div>
         -->
         <div class="cl"></div>
-        <div id="comment">
-            {% for comment in all_comments %}
+    <div id="comment">
+        {% for k, v in comment_dict.items %}
+            {% if v.is_parent %}
                 <div class="comment">
-                    {% if comment.user %}
-                        <span class="username">{{ comment.user.username }}</span>
+                    {% if v.comment.user %}
+                        <span class="username">{{ v.comment.user.username }}</span>
                     {% else %}
-                        <span class="username" title="{{ comment.email }}" alt="{{ comment.email }}">Anon</span>
+                        <span class="username">Anon</span>
                     {% endif %}
-                    <span class="content">{{ comment.comment }}</span>
-            <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/comment/{{ comment.id }}/">
+                    <span class="content">{{ v.comment.comment }}</span>
+  <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/comment/{{ v.comment.id }}/">
+            {{ comment_form.field_errors }}
+            {% csrf_token %}
+                <p>{{ comment_form.email }}</p>
+                <p>{{ comment_form.comment }}</p>
+                {{ comment_form.email.errors }}
+                {{ comment_form.comment.errors }}
+                <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
+            </form>
+
+                    {% if v.child %}
+                        {% with comments=v.child template_name='comment_tree.html' %}
+                            {% include template_name %}
+                        {% endwith %}
+                    {% endif %}
+                <div class="cl"></div>
+
+                </div>
+            {% endif %}
+        {% endfor %}
+  <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/post/{{ post.id }}/">
             {{ comment_form.field_errors }}
             {% csrf_token %}
                 <p>{{ comment_form.email }}</p>
@@ -44,19 +65,15 @@
                 <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
             </form>
                 <div class="cl"></div>
-                </div>
-            {% endfor %}
-            <div class="cl"></div>
-            <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/post/{{ post.id }}/">
-            {{ comment_form.field_errors }}
-            {% csrf_token %}
-                <p>{{ comment_form.email }}</p>
-                <p>{{ comment_form.comment }}</p>
-                {{ comment_form.email.errors }}
-                {{ comment_form.comment.errors }}
-                <p><input type="submit" name="add_comment" id="add_comment" value="{% trans 'send' %}" /></p>
-            </form>
-        </div>
-        </div>
+
+    </div>
+    <script>
+    $(function(){
+        $(".answer").click(function(){
+            $(this).children("form").show()
+            $(this).children("span").html("");
+        });            
+    });
+    </script>
     </body>
 </html>
