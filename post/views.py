@@ -11,19 +11,15 @@ from post.models import Post, Comment
 from post.forms import CommentForm, CommentForm_no_auth, \
         PostAddForm
 from blox.tasks import send_comment_activation_mail
-import ipdb
-import copy
 
 
 def home(request):
     posts = cache.get("all_post")
     if not posts:
-        posts = Post.objects.filter(is_visible=True).order_by("-updated_at")[:15]
+        posts = Post.objects.filter(is_visible=True).order_by("-updated_at").select_related('user')[:15]
         cache.set("all_post", posts)
     ctx = { "posts": posts }
-#    send_comment_activation_mail.delay("1324","iskeltan8@gmail.com")
     return render(request, "index.html", ctx)
-    #return HttpResponse("Jello World!")
 
 
 def detail(request, post_id):
@@ -37,12 +33,13 @@ def detail(request, post_id):
     else:
         comment_form = CommentForm_no_auth()
 
-#    all_comments = cache.get("post_comment-%s"%post_id)
-#    if not all_comments:
-#        all_comments = Comment.objects.filter(is_active=True, post=post)
-#        cache.set("post_comment-%s"%post_id, all_comments)
+    all_comments = cache.get("post_comment-%s"%post_id)
+    print "post_comment-%s"%post_id
+    if not all_comments:
+        all_comments = Comment.objects.select_related("user", "content_type").filter(is_active=True, post=post)
+#all_comments = Comment.objects.filter(is_active=True, post=post)
+        cache.set("post_comment-%s"%post_id, all_comments)
 
-    all_comments = Comment.objects.filter(is_active=True, post=post)
     
     dict = {}
     new_dict = {}
@@ -58,19 +55,6 @@ def detail(request, post_id):
         if dict_object["parent"]:
             new_dict[k]["is_parent"] = False
             new_dict[dict_object["parent"]]["child"].append(new_dict[k])
-
-
-#    for k in sorted(dict):
-#        dict_item = dict[k]
-#        new_dict[k] = {"comment": dict[k], "child": [], "is_parent": True }
-#        if dict_item["parent"]:
-#            new_dict[k]["is_parent"] = False
-#            new_dict[dict_item["parent"]]["child"].append(new_dict[k])
-#    for k,v in dict.items():
-#        new_dict[k] = {"comment": v["comment"], "child":[]}
-#        if v["parent"]:
-#            new_dict[v["parent"]]["child"].append(new_dict[k])
-
 
     ctx = { "post": post, "comment_form": comment_form, "all_comments": all_comments, 
         "comment_dict": new_dict }

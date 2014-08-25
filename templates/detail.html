@@ -29,7 +29,7 @@
         {% for k, v in comment_dict.items %}
             {% if v.is_parent %}
                 <div class="comment">
-                    {% if v.comment.user %}
+                    {% if v.comment.user.id %}
                         <span class="username">{{ v.comment.user.username }}</span>
                     {% else %}
                         <span class="username">Anon</span>

@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'post.templatetags',
     'account',
     'djcelery',
+    'debug_toolbar',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -18,7 +18,7 @@ class LoginForm(forms.ModelForm):
        }
 
 class RegisterForm(forms.ModelForm):
-    password_c = forms.CharField(label="confrim password", widget=forms.PasswordInput())
+    password_c = forms.CharField(label=_("confrim password"), widget=forms.PasswordInput())
     bio = forms.CharField(widget=forms.Textarea)
 
 

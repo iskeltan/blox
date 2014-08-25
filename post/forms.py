@@ -46,6 +46,7 @@ class CommentForm_no_auth(forms.ModelForm):
         new_comment.save()
         send_comment_activation_mail.delay(activation_code, email)
 
+
 class CommentForm(forms.ModelForm):
     
     
@@ -57,11 +58,11 @@ class CommentForm(forms.ModelForm):
             "comment": forms.Textarea(attrs={"placeHolder":_("write a comment")})
         }
     
+
     def save(self):
         post = self.initial["post"]
         user = self.initial["user"]
         parent_object = self.initial["parent_object"]
-
 
         new_comment = Comment()
         new_comment.comment = self.cleaned_data["comment"]

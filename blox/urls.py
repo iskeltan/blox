@@ -21,10 +21,10 @@ urlpatterns = patterns('',
     url(r'^account/register/$','account.views.register_view', name='register'),
     url(r'^account/logout/$', 'account.views.logout_view', name='logout'),
     url(r'^account/activate/(?P<activation_code>.*)/$', 'account.views.activate_user', name='activate_user'),
+    url(r'account/lost_password/(?P<activation_code>.*)/$', 'account.views.lost_password', name='lost_password'),
     url(r'^account/profile/$', 'account.views.user_profile', name='user_profile'),
     url(r'^account/password_change/$', 'account.views.password_change', name='password_change'),
     url(r'^comment/activate/(?P<activation_code>.*)/$','post.views.activate_comment', name='activate_comment'),
-
     url(r'^admin/', include(admin.site.urls)),
     url(r'^i18n/', include('django.conf.urls.i18n')),
 )

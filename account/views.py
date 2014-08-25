@@ -12,7 +12,7 @@ from account.forms import LoginForm, RegisterForm, UserProfileForm, \
 from account.models import UserProfile
 from blox.tasks import crop_image
 from post.models import Post
-import ipdb
+
 
 def login_view(request):
     if request.method == "POST":
@@ -52,8 +52,8 @@ def logout_view(request):
         logout(request)
         return HttpResponseRedirect(reverse('home'))
     else:
-        return HttpResponse("are you serious :( ? \
-        <br> <a href='?im=sure'>yes</a> <a href='/'>no</a>")
+        return HttpResponse("%s :( ?  <br> <a href='?im=sure'>%s</a> <a href='/'>%s</a>"%(
+                _("are you serious"), _('yes'), _('no')))
 
 
 def register_view(request):
@@ -143,3 +143,7 @@ def password_change(request):
             return HttpResponseRedirect(reverse("user_profile"))
     else:
         return HttpResponseRedirect(reverse("user_profile"))
+
+
+def lost_password(request, activation_code):
+    return HttpResponse(activation_code)

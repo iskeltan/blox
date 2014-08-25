@@ -20,6 +20,7 @@ class Post(models.Model):
 
     def save(self, *args, **kwargs):
         cache.set("all_post", None)
+        cache.set("post-%s" %self.pk, None)
         super(Post, self).save(*args, **kwargs)
 
 
@@ -44,3 +45,7 @@ class Comment(models.Model):
         except AttributeError:
             return_val = "Anon: %s" %self.comment[:10]
         return return_val
+
+    def save(self, *args, **kwargs):
+        super(Comment, self).save(*args, **kwargs)
+        cache.set("post_comment-%s"%self.post.pk, None)
