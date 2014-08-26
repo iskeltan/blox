@@ -87,3 +87,10 @@ class UserPasswordChangeForm(forms.Form):
     new_password = forms.CharField(label=_("new password"), widget=forms.PasswordInput())
     new_password_c = forms.CharField(label=_("new password (confrim)"), widget=forms.PasswordInput())
 
+class UserLostPasswordChangeForm(forms.Form):
+    new_password = forms.CharField(label=_("new password"), widget=forms.PasswordInput())
+    new_password_c = forms.CharField(label=_("new password (confrim)"), widget=forms.PasswordInput())
+
+
+class UserLostPasswordForm(forms.Form):
+    email = forms.CharField(label=_("email address"))

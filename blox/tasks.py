@@ -1,10 +1,11 @@
 import PIL
 from celery import task
 from django.core.mail import EmailMessage
-from post.models import Post
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext as _
 from PIL import Image
+from post.models import Post
+from account.models import UserProfile
 
 
 @task
@@ -36,3 +37,13 @@ def crop_image(image_path):
     hsize = int((float(img.size[1])*float(wpercent)))
     img = img.resize((basewidth,hsize), PIL.Image.ANTIALIAS)
     img.save(image_path)
+
+
+@task
+def send_email_reset_password(email, activation_code):
+    site = Site.objects.get_current().domain
+    subject = _("Acout your password reset")
+    body =  "%s : http://%s/account/reset_password/%s/" %(_("go to this link for password reset"), \
+            site,  activation_code)
+    email = EmailMessage(subject, body, to=[email])
+    email.send()

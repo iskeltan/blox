@@ -8,9 +8,9 @@ from django.contrib import messages
 from django.contrib.auth.models import User, check_password
 from django.contrib.auth.decorators import login_required
 from account.forms import LoginForm, RegisterForm, UserProfileForm, \
-         UserPasswordChangeForm
+         UserPasswordChangeForm, UserLostPasswordForm, UserLostPasswordChangeForm
 from account.models import UserProfile
-from blox.tasks import crop_image
+from blox.tasks import crop_image,  send_email_reset_password
 from post.models import Post
 
 
@@ -144,6 +144,53 @@ def password_change(request):
     else:
         return HttpResponseRedirect(reverse("user_profile"))
 
+def lost_password_view(request):
+    if request.method == "POST":
+        form = UserLostPasswordForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            user = User.objects.filter(email=email)
+            if user:
+                user = user[0]
+            else:
+                messages.warning(request, _("no such user"))
+                return HttpResponseRedirect(reverse("lost_password_view"))
+
+            user_profile = UserProfile.objects.get(user=user)
+            activation_code = user_profile.activation_code
+            send_email_reset_password.delay(email, activation_code)
+            messages.info(request, _("password reset link sent to your email address"))
+            return HttpResponseRedirect(reverse("home"))
+        else:
+            return HttpResponseRedirect(reverse("home"))
+    else:
+        form = UserLostPasswordForm()
+        ctx = {"form": form }
+        return render(request, "lost_password.html", ctx)
+
 
 def lost_password(request, activation_code):
-    return HttpResponse(activation_code)
+    user_profile = UserProfile.objects.filter(activation_code=activation_code)
+    if not user_profile:
+        messages.warning(request, _("no such user"))
+        return HttpResponseRedirect(reverse("home"))
+    user = user_profile[0].user
+    if request.method == "POST":
+        form = UserLostPasswordChangeForm(request.POST)
+        if form.is_valid():
+            new_password = form.cleaned_data["new_password"]
+            new_password_c = form.cleaned_data["new_password_c"]
+            if not new_password == new_password_c:
+                messages.warning(request, _("passwords not matching"))
+                return HttpResponseRedirect(reverse("lost_password", args=[activation_code]))
+            user.set_password(new_password)
+            user.save()
+            messages.info(request, _("password change successful"))
+            return HttpResponseRedirect(reverse("login"))
+        else:
+            messages.warning(request, _("form is not valid"))
+            return HttpResponseRedirect(reverse('lost_password', args=[activation_code]))
+    else:
+        form = UserLostPasswordChangeForm()
+        ctx = { "form": form }
+        return render(request, "lost_password.html", ctx)
