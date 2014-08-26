@@ -30,9 +30,9 @@
             {% if v.is_parent %}
                 <div class="comment">
                     {% if v.comment.user.id %}
-                        <span class="username">{{ v.comment.user.username }}</span>
+                        <span class="username">{{ v.comment.user.first_name }}</span>
                     {% else %}
-                        <span class="username">Anon</span>
+                        <span class="username" alt="{{ v.comment.email }}">Anon</span>
                     {% endif %}
                     <span class="content">{{ v.comment.comment }}</span>
   <form id="comment_form" method="POST" action="/add_comment/{{ post.id }}/comment/{{ v.comment.id }}/">
@@ -73,6 +73,12 @@
             $(this).children("form").show()
             $(this).children("span").html("");
         });            
+
+
+        $(".comment .username").click(function(){
+                $(this).parent().children(".comment").toggle();
+                });
+
     });
     </script>
     </body>

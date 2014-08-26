@@ -2,9 +2,9 @@
 {% for v in comments %}
     <div class="comment">
         {% if v.comment.user %}
-            <span class="username">{{ v.comment.user.username }}</span>
+            <span class="username">{{ v.comment.user.first_name }}</span>
         {% else %}
-            <span class="username">Anon</span>
+            <span class="username" alt="{{ v.comment.email }}">Anon</span>
         {% endif %} 
         <span class="content">{{ v.comment.comment }}</span>
         {% if v.child %}

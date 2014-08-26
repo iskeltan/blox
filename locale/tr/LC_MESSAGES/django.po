@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 13:38+0300\n"
+"POT-Creation-Date: 2014-08-26 08:50+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,11 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: account/forms.py:21
+#, fuzzy
+msgid "confrim password"
+msgstr "eski şifre"
 
 #: account/forms.py:36
 msgid "These passwords don't match."
@@ -49,6 +54,18 @@ msgstr "bu kullanıcı aktif değil"
 msgid "no such user"
 msgstr "böyle bir kullanıcı yok"
 
+#: account/views.py:56
+msgid "are you serious"
+msgstr "essah mı"
+
+#: account/views.py:56
+msgid "yes"
+msgstr "evet"
+
+#: account/views.py:56
+msgid "no"
+msgstr "hayır"
+
 #: account/views.py:64
 msgid "your user has been created but need confirm email"
 msgstr "hesabın oluşturuldu ama e-posta ile doğrulama gerekli"
@@ -76,7 +93,7 @@ msgstr "yorumun eklendi"
 
 #: account/views.py:110
 msgid "profile update could not be completed"
-msgstr ""
+msgstr "profil güncellemen tamamlanamadı"
 
 #: account/views.py:131
 msgid "old password not matching"
@@ -90,19 +107,35 @@ msgstr "şifreler uyuşmuyor"
 msgid "password change successful"
 msgstr "şifre güncelleme başarılı"
 
-#: account/views.py:142 post/views.py:138
+#: account/views.py:142 post/views.py:122
 msgid "form is not valid"
 msgstr "form geçersiz"
 
-#: blox/settings.py:86
-msgid "Turkish"
-msgstr ""
-
 #: blox/settings.py:87
-msgid "English"
-msgstr ""
+msgid "Turkish"
+msgstr "Türkçe"
 
-#: post/forms.py:18 post/forms.py:57
+#: blox/settings.py:88
+msgid "English"
+msgstr "İngilizce"
+
+#: blox/tasks.py:13
+msgid "Comment Activation"
+msgstr "Yorum Aktivasyonu"
+
+#: blox/tasks.py:14
+msgid "go to this link for activate your comment"
+msgstr "yorumunun aktivasyonu için bu linke git"
+
+#: blox/tasks.py:23
+msgid "About your user activation"
+msgstr "Kullanıcı Aktivasyonun Hakkında"
+
+#: blox/tasks.py:24
+msgid "go to this link for user activation"
+msgstr "üyeliğinin aktivasyonu için bu linke git"
+
+#: post/forms.py:18 post/forms.py:58
 msgid "write a comment"
 msgstr "bir yorum yaz"
 
@@ -110,35 +143,35 @@ msgstr "bir yorum yaz"
 msgid "E-Mail Address"
 msgstr "E-Post Adresi"
 
-#: post/views.py:94
+#: post/views.py:78
 msgid "your comment has been added"
 msgstr "yorumun eklendi"
 
-#: post/views.py:97
+#: post/views.py:81
 msgid "your comment has been added but must confirm with email required "
 msgstr "yorumun eklendi ama e-posta doğrulaması gerekli"
 
-#: post/views.py:103
+#: post/views.py:87
 msgid "this comment is not valid "
 msgstr "bu yorum geçersiz"
 
-#: post/views.py:116
+#: post/views.py:100
 msgid "your comment has been activated"
 msgstr "yorumun aktif edildi"
 
-#: post/views.py:118
+#: post/views.py:102
 msgid "invalid activation key"
 msgstr "geçersiz aktivasyon kodu"
 
-#: post/views.py:154
+#: post/views.py:138
 msgid "post update is successful"
 msgstr "yazı güncelleme başarılı"
 
-#: post/views.py:157
+#: post/views.py:141
 msgid "post update is unsuccessful"
 msgstr "yazı güncelleme başarısız"
 
-#: post/views.py:161
+#: post/views.py:145
 msgid "this post not yours"
 msgstr "bu yazı senin değil"
 
@@ -147,8 +180,12 @@ msgstr "bu yazı senin değil"
 msgid "register"
 msgstr "kayıt"
 
-#: templates/detail.html:50 templates/detail.html.py:64
-#: templates/yorum_amk.html:24
+#: templates/comment_tree.html:16
+msgid "Answer"
+msgstr "Cevapla"
+
+#: templates/comment_tree.html:24 templates/detail.html:45
+#: templates/detail.html.py:65
 msgid "send"
 msgstr "gönder"
 
@@ -208,7 +245,3 @@ msgstr "Yazı"
 #: templates/user_profile.html:34 templates/user_profile.html.py:39
 msgid "Edit"
 msgstr "Düzenle"
-
-#: templates/yorum_amk.html:16
-msgid "Answer"
-msgstr "Cevapla"
